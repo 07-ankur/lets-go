@@ -1,5 +1,7 @@
 package main
 
+import "strconv"
+
 func reverseString(s string) string {
 	runes := []rune(s)
 
@@ -21,4 +23,24 @@ func reverseStringWithBuilder(s string) string {
 		builder[len(runes)-1-i] = runes[i]
 	}
 	return string(builder)
+}
+
+
+func fizzbuzz(n int) []string {
+	result := make([]string, n)
+
+	for i := 1; i <= n; i++ {
+		switch {
+		case i%15 == 0:
+			result[i-1] = "FizzBuzz"
+		case i%3 == 0:
+			result[i-1] = "Fizz"
+		case i%5 == 0:
+			result[i-1] = "Buzz"
+		default:
+			result[i-1] = strconv.Itoa(i)
+		}
+	}
+
+	return result
 }
