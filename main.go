@@ -58,4 +58,18 @@ func main() {
 
 	fmt.Println(removeDuplicates(numbers))
 
+	email := EmailNotifier{
+		Email: "ankur@example.com",
+	}
+
+	slack := SlackNotifier{
+		Channel: "#general",
+	}
+
+	notifiers := []Notifier{
+		email,
+		slack,
+	}
+
+	notifyAll(notifiers, "Server is down!")
 }
